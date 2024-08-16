@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Link from "next/link"
+import Image from "next/image";
+import image1 from "./images/Logo_TV_2015.png"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +19,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+      <header className="bg-rose-600 ">
+          <nav className="p-5 flex flex-wrap">
+            <div className="container mx-auto flex items-center justify-between flex-wrap">
+              <img className="h-8 w-auto flex justify-start gap-10" src="./images/Logo_TV_2015.png" alt="Logo"  />
+              <div className=" flex gap-5 justify-end flew">
+                <Link href="/" className="inline-block px-4 py-1  text-rose-600 text-sm bg-black rounded-full hover:bg-black hover:text-white transition">Home</Link>
+                <Link href="/dashboard" className="inline-block px-4 py-1  text-rose-600 text-sm bg-black rounded-full hover:bg-black hover:text-white transition">Dashboard</Link>
+                <Link href="/customer" className="inline-block px-4 py-1  text-rose-600 text-sm bg-black rounded-full hover:bg-black hover:text-white transition">Customer</Link>
+                <Link href="/setting" className="inline-block px-4 py-1   text-rose-600 text-sm bg-black rounded-full hover:bg-black hover:text-white transition">Settings</Link>
+                <Link href="/team" className="inline-block px-4 py-1   text-rose-600 text-sm bg-black rounded-full hover:bg-black hover:text-white transition">Team</Link>
+                <Link href="/blog" className="inline-block px-4 py-1   text-rose-600 text-sm bg-black rounded-full hover:bg-black hover:text-white transition">Blog</Link>
+              </div>
+            </div>
+          </nav>
+        </header>
+        {children}
+        <footer className="bg-slate-900 py-10 flex fixed bottom-0 left-0 w-full">
+          <Link href="/" className="fa fa-linkdin"></Link>
+        </footer>
+        </body>
     </html>
   );
 }
